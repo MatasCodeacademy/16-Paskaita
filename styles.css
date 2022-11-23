@@ -1,11 +1,23 @@
 * {
 	padding: 0;
 	margin: 0;
+	transition: 1s ease;
+}
+
+/*
+=========
+General
+=========
+*/
+
+html {
+	scroll-behavior: smooth;
 }
 
 :root {
-	--backround-color-main: rgb(34, 81, 146);
+	--backround-color-main: rgb(11, 22, 36);
 	--backround-color-secondary: rgb(139, 151, 169);
+	--width-main: 70%;
 }
 
 h1 {
@@ -16,16 +28,25 @@ p {
 	font-size: 1.5em;
 }
 
+/*
+=========
+Header
+=========
+*/
+
 header {
-	height: 50px;
+	height: 70px;
 	background-color: var(--backround-color-main);
 	display: flex;
 	justify-content: space-between;
 	padding: 0 5%;
+	position: sticky;
+	top: 0;
 }
 
 header img {
 	max-height: 100%;
+	filter: invert(100%);
 }
 
 #menu-links {
@@ -36,7 +57,15 @@ header img {
 
 #menu-links a {
 	color: rgb(203, 203, 203);
+	text-decoration: none;
+	font-size: 1.2em;
 }
+
+/*
+=========
+About
+=========
+*/
 
 #section-about {
 	height: 600px;
@@ -50,15 +79,148 @@ header img {
 
 #section-about p,
 #section-about h1 {
-	width: 80%;
+	width: var(--width-main);
 }
+
+/*
+=========
+Gallery
+=========
+*/
 
 #section-gallery {
-	height: 1000px;
 	background-color: var(--backround-color-main);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 30px 0;
+	row-gap: 40px;
 }
 
-#section-contact {
-	height: 500px;
+.gallery-card {
 	background-color: var(--backround-color-secondary);
+	width: var(--width-main);
+	border-radius: 5%;
+}
+
+.gallery-card img {
+	width: 100%;
+	border-radius: 5% 5% 0 0;
+}
+
+.gallery-card h2 {
+	color: var(--backround-color-main);
+	text-align: center;
+	margin: 5% 0;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1499px) {
+	#section-gallery {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 5%;
+		padding: 50px 5%;
+		background-color: aquamarine;
+		grid-template-areas:
+			"fotoa fotob"
+			"fotoa fotob"
+			"fotoc fotoc"
+			"fotod .";
+	}
+
+	.gallery-card {
+		width: 100%;
+	}
+
+	.gallery-card:nth-child(1) {
+		grid-area: fotoa;
+		grid-area: 1/1/2/3;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+	@keyframes backgroundColorChange {
+		0% {
+			background-color: var(--backround-color-main);
+		}
+		25% {
+			background-color: blue;
+		}
+		50% {
+			background-color: aqua;
+		}
+		75% {
+			background-color: blue;
+		}
+		100% {
+			background-color: var(--backround-color-main);
+		}
+	}
+
+	#section-gallery {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: max-content;
+		padding: 50px 10%;
+		gap: 5%;
+		animation-name: backgroundColorChange;
+		animation-duration: 3s;
+		animation-iteration-count: infinite;
+	}
+
+	.gallery-card {
+		width: 100%;
+	}
+}
+
+/*
+=========
+Contact
+=========
+*/
+
+#section-contact {
+	background-color: var(--backround-color-secondary);
+	padding: 50px 0;
+	display: flex;
+	justify-content: center;
+}
+
+#section-contact form {
+	width: var(--width-main);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 20px;
+}
+
+#section-contact input {
+	height: 50px;
+	width: 100%;
+	font-size: 1.5em;
+	border: none;
+}
+
+#section-contact textarea {
+	width: 100%;
+	height: 250px;
+	font-size: 1.5em;
+	resize: none;
+	border: none;
+}
+
+#section-contact button {
+	width: 25%;
+	height: 50px;
+	font-size: 1.5em;
+	border-radius: 5px;
+	border: none;
+	background-color: rgb(110, 227, 110);
+}
+
+@media screen and (min-width: 769px) {
+	#section-contact form {
+		width: 60%;
+	}
 }

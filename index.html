@@ -11,9 +11,9 @@
 		<header>
 			<img src="./images/spaudas3beurl.png" />
 			<div id="menu-links">
-				<a>ABOUT</a>
-				<a>GALLERY</a>
-				<a>CONTACT</a>
+				<a href="#section-about">ABOUT</a>
+				<a href="#section-gallery">GALLERY</a>
+				<a href="#section-contact">CONTACT</a>
 			</div>
 		</header>
 
@@ -26,7 +26,32 @@
 				reiciendis.
 			</p>
 		</section>
-		<section id="section-gallery"></section>
-		<section id="section-contact"></section>
+		<section id="section-gallery">
+			<div class="gallery-card">
+				<img src="./images/ibrahim-rifath-Y6tBl0pTe-g-unsplash.jpg" />
+				<h2>LOREM IPSUM</h2>
+			</div>
+			<div class="gallery-card">
+				<img src="./images/sebastien-uwagwk2FywU-unsplash.jpg" />
+				<h2>LOREM IPSUM</h2>
+			</div>
+			<div class="gallery-card">
+				<img src="./images/joshua-earle-p2TQ-3Bh3Oo-unsplash.jpg" />
+				<h2>LOREM IPSUM</h2>
+			</div>
+			<div class="gallery-card">
+				<img src="./images/ali-maah-zyOeEm4NsPM-unsplash.jpg" />
+				<h2>LOREM IPSUM</h2>
+			</div>
+		</section>
+		<section id="section-contact">
+			<form action="POST">
+				<input type="text" name="Name" placeholder="Name" />
+				<input type="text" name="Surname" placeholder="Surname" />
+				<input type="email" name="Email" placeholder="Email" />
+				<textarea name="Message" placeholder="Your message"></textarea>
+				<button type="submit">Send</button>
+			</form>
+		</section>
 	</body>
 </html>
